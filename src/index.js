@@ -1,24 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Card, Table} from 'antd';
-import 'antd/dist/antd.css';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
-class Container extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="header">
-          <Card title="表格信息"/>
-          <Table />
-        </div>
-      </div>
-    );
-  }
+let name = 'my world';
+function greet(name) {
+    if(name) {
+        return <h1>hello, {name}</h1>
+    } else {
+        return <h1>hello stranger</h1>
+    }
 }
-
-ReactDOM.render(
-  <Container />,
-  document.getElementById('root')
-);
-serviceWorker.unregister();
+let element = greet(name);
+ReactDOM.render(element,document.getElementById('root'));
+// serviceWorker.unregister();
