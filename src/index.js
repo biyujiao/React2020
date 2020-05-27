@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import * as serviceWorker from './serviceWorker';
 
 let name = 'my world';
 function greet(name) {
@@ -12,4 +11,3 @@ function greet(name) {
 }
 let element = greet(name);
 ReactDOM.render(element,document.getElementById('root'));
-// serviceWorker.unregister();
