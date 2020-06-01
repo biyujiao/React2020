@@ -9,5 +9,8 @@ function greet(name) {
         return <h1>hello stranger</h1>
     }
 }
+
+
+
 let element = greet(name);
 ReactDOM.render(element,document.getElementById('root'));
