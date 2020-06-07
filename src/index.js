@@ -1,24 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Card, Table} from 'antd';
-import 'antd/dist/antd.css';
-import * as serviceWorker from './serviceWorker';
 
-class Container extends React.Component {
+class Welcome2 extends React.Component {
   render() {
-    return (
-      <div className="container">
-        <div className="header">
-          <Card title="表格信息"/>
-          <Table />
-        </div>
-      </div>
-    );
+    return <h1>hello {this.props.name}----  {this.props.age}</h1>;
   }
 }
-
-ReactDOM.render(
-  <Container />,
-  document.getElementById('root')
+/****
+ * 
+let data = { name:'biyujiao', age: 25};
+let element = (
+  <h1 className="title" style={{color: 'red', fontSize: '24px'}}>
+    你好 , <span>world</span>
+  </h1>
 );
-serviceWorker.unregister();
+ * 
+*/
+let ele = React.createElement("h1", {
+    className: "title",
+    style: {
+      color: 'red',
+      fontSize: '24px'
+    }
+  }, "hello", React.createElement("span", null, "world")
+)
+ReactDOM.render( ele, document.getElementById('root'));
