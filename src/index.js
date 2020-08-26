@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// import LifeCircle from './component/LifeCircle.js';
+// import RefForm from './component/RefForm.js';
+// import App from './component/AsyncState.js';
+// import Form from './component/Form.js';
+// import NewLifeCircle from './component/NewLifeCircle';
+// import OldContext from './component/OldContext';
+import Person from './component/PropTypes';
 
-let name = 'my world';
-function greet(name) {
-    if(name) {
-        return <h1>hello, {name}</h1>
-    } else {
-        return <h1>hello stranger</h1>
-    }
-}
+let props = {
+    name: 'abc',
+    age: 18,
+    gender: 'man',
+    isMarried: true,
+    hobby: ['1', '2'],
+    position: {x:100,y:100}
+};
 
+ReactDOM.render(<Person {...props}/>, document.getElementById('root'));
 
-
-let element = greet(name);
-ReactDOM.render(element,document.getElementById('root'));
+// ReactDOM.render(<Form name='爸爸'/>, document.getElementById('root'));
