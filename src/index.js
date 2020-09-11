@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import LifeCircle from './component/LifeCircle.js';
-// import RefForm from './component/RefForm.js';
-// import App from './component/AsyncState.js';
-// import Form from './component/Form.js';
-// import NewLifeCircle from './component/NewLifeCircle';
-// import OldContext from './component/OldContext';
-import Person from './component/PropTypes';
+// import Person from './component/PropTypes';
+// import NewContext from './component/context/NewContext';
+import Pure from './component/pure/Pure';
 
 let props = {
     name: 'abc',
@@ -17,6 +13,6 @@ let props = {
     position: {x:100,y:100}
 };
 
-ReactDOM.render(<Person {...props}/>, document.getElementById('root'));
+ReactDOM.render(<Pure/>, document.getElementById('root'));
 
 // ReactDOM.render(<Form name='爸爸'/>, document.getElementById('root'));

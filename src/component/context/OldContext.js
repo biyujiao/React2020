@@ -12,12 +12,9 @@ class Header extends Component {
     }
 }
 class Title extends Component {
-    static contextTypes = {
-        color: 'String'
-    };
     render() {
         return (
-            <div style={{border: '3px solid black', padding: '10px', color: this.context.color}}>
+            <div style={{border: '3px solid black', padding: '10px'}}>
                 Title
             </div>
         )
@@ -37,7 +34,7 @@ class Main extends Component {
         return (
             <div style={{border: '3px solid orange', padding: '10px', marginTop: '10px'}}>
                 Main
-                <Content></Content>
+                <Content />
             </div>
         )
     }
@@ -46,19 +43,7 @@ export default class Page extends Component {
     
     constructor() {
         super();
-        this.state = {color: 'gray'};
-    }
-    // 定义子上下文对象的属性和类型
-    static childContextTypes = {
-        color: 'String',
-        setColor: 'function'
-    };
-    // 返回/定义真正的子上下文
-    getChildContext() {
-        return {
-            color: this.state.color,
-            setColor: this.setColor
-        }
+        this.state = {color: 'yellow'};
     }
     setColor = (color) => {
         this.setState({color});

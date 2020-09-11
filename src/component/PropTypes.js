@@ -11,14 +11,14 @@ export default class PropType extends Component {
         age: PropTypes.number.isRequired,
         gender: PropTypes.oneOf(['man','woman']),
         isMarried: PropTypes.bool.isRequired,
-        hobby:  PropTypes.arrayOf(PropTypes.number),
+        hobby:  PropTypes.arrayOf(PropTypes.string),
         position:  PropTypes.shape({
             x: PropTypes.number,
             y: PropTypes.number
         }),
         age(props,propsName,componentName) {
             if (props[propsName]<10) {
-                
+                return new Error(`Invalid Prop ${propName} suplied to &{componentName}`);
             }
         }
     }
