@@ -1,34 +1,45 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-// import Person from './component/PropTypes';
-// import NewContext from './component/context/NewContext';
-// import Pure from './component/pure/Pure';
-// import Logger from './component/high/Logger';
-// import MouseTracker from './component/render-props/MouseTracker';
-// import Picture from './component/render-props/Picture';
+// import React, { useState, useEffect } from 'react';
+// import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
 
-function Counter() {
-    let [number, setNumber]=useState(0);
-    return (
-        <>
-            <div>{number}</div>
-            <button onClick={()=>setNumber(number+1)} > + </button>
-        </>
-    );
+let initState = 0;
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+function reducer(state = initState, action) {
+    switch(action.type) {
+        case INCREMENT:
+            return state+1;
+        case DECREMENT:
+            return state-1;
+        default:
+            return state;
+    }
 }
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
-/* render-props
+let store = createStore(reducer);
+let counterVal =document.getElementById('counter-value');
+let incrementBtn =document.getElementById('increment');
+let decrementBtn=document.getElementById('decrement');
 
-ReactDOM.render(<MouseTracker render={
-    (props)=>{
-        return (
-            <Picture {...props}/>
-        )
-    }
-}/>, document.getElementById('root'));
-*/
+function render() {
+    counterVal.innerHTML = store.getState();
+}
+render();
 
-// ReactDOM.render(<Logger name="Logger名字"/>, document.getElementById('root'));
+// 取消订阅
+// let unsubscribe = store.subscribe(render);
+// console.log(unsubscribe());
+// setTimeout(() => {
+//     unsubscribe();
+// }, 3000);
 
-// ReactDOM.render(<Form name='爸爸'/>, document.getElementById('root'));
+incrementBtn.addEventListener('click', function() {
+    store.dispatch({type: INCREMENT});
+    render();
+});
+
+decrementBtn.addEventListener('click', function() {
+    store.dispatch({type: DECREMENT});
+    render();
+});
