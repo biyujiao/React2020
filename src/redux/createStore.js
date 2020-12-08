@@ -1,5 +1,5 @@
 export default function createStore(reducer, preloadedState) {
-    let currentState = preloadedState;
+    let currentState = preloadedState; // 仓库中的状态
     let currentListeners = [];
   
     function getState() {
@@ -8,9 +8,10 @@ export default function createStore(reducer, preloadedState) {
   
     function subscribe(listener) {
       currentListeners.push(listener);
+      // 返回一个取消订阅
       return function unsubscribe() {
         const index = currentListeners.indexOf(listener);
-        currentListeners.splice(index, 1);
+        currentListeners.splice(index, 1);// 把此监听函数删除掉
       };
     }
   
@@ -30,6 +31,7 @@ export default function createStore(reducer, preloadedState) {
   
       return action;
     }
+    //初始化默认值
     dispatch({ type:'@@redux/INIT' });
     return {
       dispatch,
